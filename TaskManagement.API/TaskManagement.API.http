@@ -1,0 +1,73 @@
+@TaskManagement.API_HostAddress = http://localhost:5258
+
+### Get all tasks
+GET {{TaskManagement.API_HostAddress}}/api/tasks
+Accept: application/json
+
+###
+
+### Get task by ID
+GET {{TaskManagement.API_HostAddress}}/api/tasks/1
+Accept: application/json
+
+###
+
+### Create new task
+POST {{TaskManagement.API_HostAddress}}/api/tasks
+Content-Type: application/json
+
+{
+  "title": "New Task",
+  "description": "Task description",
+  "status": "To Do",
+  "createdBy": 1,
+  "assignedTo": null
+}
+
+###
+
+### Update task
+PUT {{TaskManagement.API_HostAddress}}/api/tasks/1
+Content-Type: application/json
+
+{
+  "title": "Updated Task",
+  "description": "Updated description",
+  "status": "In Progress",
+  "assignedTo": 2
+}
+
+###
+
+### Update task status
+PATCH {{TaskManagement.API_HostAddress}}/api/tasks/1/status
+Content-Type: application/json
+
+{
+  "status": "Done"
+}
+
+###
+
+### Delete task
+DELETE {{TaskManagement.API_HostAddress}}/api/tasks/1
+
+###
+
+### Get tasks by status
+GET {{TaskManagement.API_HostAddress}}/api/tasks/by-status/To%20Do
+Accept: application/json
+
+###
+
+### Get recent tasks
+GET {{TaskManagement.API_HostAddress}}/api/tasks/recent
+Accept: application/json
+
+###
+
+### Get task statistics
+GET {{TaskManagement.API_HostAddress}}/api/tasks/statistics
+Accept: application/json
+
+###
